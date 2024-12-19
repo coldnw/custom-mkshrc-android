@@ -42,9 +42,6 @@ device_info() {
     echo "├── SDK: $(getprop ro.build.version.sdk)"
     echo "└── Kernel: $(uname -r)"
 }
-update-shrc() {
-    busybox wget -O /sdcard/.config/shrc https://raw.githubusercontent.com/coldnw/custom-mkshrc-android/main/shrc
-}
 
 # Welcome message
 echo -e "\033[1;36m╭────────────────────────────────────╮"

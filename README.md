@@ -7,6 +7,12 @@
 - Install Via magisk , kernel su or apatch
 - reboot
 - Make sure no other magisk modules is interfering with mkshrc otherwise this module won't work
+- "If you are use Termux, you can run the following command in Termux's default shell after installing the module to make Termux use the module's configuration:"
+```
+termux-setup-storage
+echo "source /system/etc/mkshrc" >> ~/.bashrc
+exit
+```
 
 ###### Bugs
 -  may not work in a non-root shell environment that doesn't have permission to access internal storage; in that case it will fall back to the default.

@@ -1,0 +1,55 @@
+# Custom shrc for Android
+export PS1='$(
+    DEVICE=$(getprop ro.product.device)
+    USER=$(whoami)
+    if [ $(id -u) -eq 0 ]; then
+        echo "\033[1;31m╭─$USER@$DEVICE\n\033[1;31m╰─❯❯❯#\033[0m "
+    else
+        echo "\033[1;34m╭─$USER@$DEVICE\n\033[1;34m╰─❯❯❯$\033[0m "
+    fi
+)'
+export TERM=xterm-256color
+export CLICOLOR=1
+
+export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ls='ls --color=auto'
+alias ll='ls -la --color=auto'
+alias la='ls -A --color=auto'
+alias l='ls -CF --color=auto'
+lsd() {
+    ls -la --color=auto | awk '{
+        if($1 ~ /^d/) printf "📁 %s\n", $0;
+        else if($1 ~ /^l/) printf "🔗 %s\n", $0;
+        else if($1 ~ /^-.*x/) printf "⚙️  %s\n", $0;
+        else printf "📄 %s\n", $0;
+    }'
+}
+alias battery='dumpsys battery | grep level'
+alias cpu='cat /proc/cpuinfo'
+alias mem='free -h'
+alias storage='df -h'
+alias ping='ping -c 5'
+# Device info
+device_info() {
+    echo "📱 Device Information"
+    echo "├── Device: $(getprop ro.product.device)"
+    echo "├── Model: $(getprop ro.product.model)"
+    echo "├── Android: $(getprop ro.build.version.release)"
+    echo "├── SDK: $(getprop ro.build.version.sdk)"
+    echo "└── Kernel: $(uname -r)"
+}
+
+# Welcome message
+echo -e "\033[1;36m╭────────────────────────────────────╮"
+echo -e "│     Welcome to Android Terminal     │"
+echo -e "├────────────────────────────────────┤"
+echo -e "│  Device: $(getprop ro.product.device)"
+echo -e "│  $(date '+%A, %B %d, %Y')"
+echo -e "╰────────────────────────────────────╯\033[0m"
+
+# Set terminal title
+echo -e "\033]0;Terminal - $(getprop ro.product.device)\007"

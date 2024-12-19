@@ -1,5 +1,5 @@
 ## custom-mkshrc-android
-- A simple Magisk Module which allows you to load android default shell configuration from Internal Storage (/sdcard/.config/shrc)
+- A simple Magisk module that allows you to load the Android default shell configuration from internal storage (/sdcard/.config/shrc), making it easy to set up your custom configurations, aliases, and more
 
 #### How To install ?
 - Download The Module

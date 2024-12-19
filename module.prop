@@ -1,1 +1,6 @@
-
+id=custom-mkshrc-android
+name=Custom mkshrc Android 
+version=1
+versionCode=10
+author=StupidThingsAndroid
+description=allows you to load device default shell configuration from "/sdcard/.config/shrc"

@@ -1,6 +1,6 @@
 mkdir -p "$MODPATH/system/etc"
 mkdir -p "/sdcard/.config"
-cp "/system/etc/mkshrc" "$MODPATH/system/etc/mkshrc"
+cp "/system/etc/mkshrc" "$MODPATH/system/etc"
 
 MKSHRC_LINES='update-shrc() {
     mkdir -p /sdcard/.config
